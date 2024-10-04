@@ -138,3 +138,8 @@ button {
 .danger strong {
   color: #d9534f;
 }
+
+.completed {
+	text-decoration: line-through;
+	color: red; 
+  }

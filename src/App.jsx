@@ -35,7 +35,7 @@ const App = () => {
     };
 
     try {
-      const response = await fetch(api_url_username, {
+      const response = await fetch('https://playground.4geeks.com/todo/todos/elio', {
         method: 'POST',
         body: JSON.stringify(dataToSend),  // la variable dataToSend puede ser un 'string' o un {objeto} que proviene de algún lugar más arriba en nuestra aplicación
         headers: {
@@ -58,7 +58,7 @@ const App = () => {
 
   const deleteTodo = async (todoId) => {
     try {
-      const response = await fetch(api_url_username, {
+      const response = await fetch(`https://playground.4geeks.com/todo/todos/${todoId}`, {
         method: 'DELETE',
         body: JSON.stringify(usertodos.filter(todo => todo.id !== todoId)), //filtrado del arreglo
         headers: {
