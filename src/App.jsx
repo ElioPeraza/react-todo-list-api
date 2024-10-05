@@ -3,9 +3,10 @@ import './App.css';
 
 const App = () => {
   const api_url_username = 'https://playground.4geeks.com/todo/users/elio'; //Modificar el nombre de usuario con el valor del usuario que crearon
+  const api_url_todos = 'https://playground.4geeks.com/todo/todos/';
   const [username, setUsername] = useState('');
   const [usertodos, setUserTodos] = useState({});
-  const [inputvalue, setInputValue] = useState('')
+  const [inputvalue, setInputValue] = useState('');
   const [flagerror, setFlagError] = useState(false);
 
   useEffect(() => {
@@ -45,13 +46,16 @@ const App = () => {
 
       if (response.ok) {
         const data = await response.json();
-        getListTodos(); //agrega a la lista
+        let array_todos_aux = usertodos;
+        array_todos_aux.push(data);
+        setUserTodos(array_todos_aux)
+        // getListTodos(); //agrega a la lista
         setInputValue(''); //Limpia el imput
         return data;
       } else {
         console.log('error al agregar tarea ', response.status, response.statusText);
       }
-    } catch(error) {
+    } catch (error) {
       console.log('Error al realizar el POST', error)
     }
   };
@@ -60,12 +64,12 @@ const App = () => {
     try {
       const response = await fetch(`https://playground.4geeks.com/todo/todos/${todoId}`, {
         method: 'DELETE',
-        body: JSON.stringify(usertodos.filter(todo => todo.id !== todoId)), //filtrado del arreglo
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        // body: JSON.stringify(usertodos.filter(todo => todo.id !== todoId)), //filtrado del arreglo
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // },
       });
-  
+
       if (response.ok) {
         setUserTodos(usertodos.filter(todo => todo.id !== todoId)); // elimina y actualiza
       } else {
@@ -75,7 +79,28 @@ const App = () => {
       console.error('Error al realizar la solicitud DELETE:', error);
     }
   };
-  
+
+  const updateTodo = async (id, label, is_done) => {
+    let data = {
+      'label': label,
+      'is_done': is_done,
+    };
+    const response = await fetch(api_url_todos + id, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.ok) {
+      setUserTodos(usertodos.map(todo => todo.is_done === false ? {...todo,is_done: true} : todo));
+      
+      
+    } else {
+      console.error('Error al actualizar el todo')
+    }
+
+  }
 
 
   const handleInputChange = (e) => {
@@ -113,10 +138,21 @@ const App = () => {
               <ul id='todo-list'>
                 {usertodos.map((todo) =>
                   <li className='todo-item' key={todo.id}>
-                    <span className='task-text'>{todo.label}</span>
-                    <button className='complete-button'>Marcar como hecha</button>
+                    {
+                      !todo.is_done ?
+                        <>
+                          <span className='task-text'>{todo.label}</span>
+                          <button className='complete-button' onClick={() => { updateTodo(todo.id, todo.label, true) }}>Marcar como hecha</button>
+                        </>
+                        :
+                        <>
+                          <span className='task-text is-done'>{todo.label}</span>
+                          <button className='complete-button' onClick={() => { updateTodo(todo.id, todo.label, false) }}>Marcar como no hecha</button>
+                        </>
+                    }
+                    
                     <button className='delete-button'
-                    onClick={() => deleteTodo(todo.id)}>Eliminar</button>
+                      onClick={() => deleteTodo(todo.id)}>Eliminar</button>
                   </li>
                 )}
               </ul>

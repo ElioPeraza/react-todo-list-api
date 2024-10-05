@@ -139,7 +139,6 @@ button {
   color: #d9534f;
 }
 
-.completed {
+.is-done {
 	text-decoration: line-through;
-	color: red; 
-  }
+}
