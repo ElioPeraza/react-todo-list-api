@@ -2,11 +2,11 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: 'Arial', sans-serif; /* Cambié a una fuente más moderna */
+	font-family: 'Arial', sans-serif; 
   }
   
   body {
-	background-color: #f4f4f4; /* Color de fondo suave */
+	background-color: #f4f4f4; 
   }
   
   #root {
@@ -16,13 +16,13 @@
 	width: 100%;
 	max-width: 600px;
 	padding: 2rem;
-	margin: 2rem auto; /* Centrado vertical y horizontal */
+	margin: 2rem auto; 
   }
   
   .header {
 	text-align: center;
 	margin-bottom: 1.5rem;
-	font-size: 1.5rem; /* Aumentado el tamaño de la fuente */
+	font-size: 1.5rem; 
 	color: #333;
   }
   
@@ -34,28 +34,28 @@
   
   #todo-input {
 	padding: 0.75rem;
-	border: 2px solid #4CAF50; /* Color verde */
+	border: 2px solid #4CAF50; 
 	border-radius: 5px;
-	transition: border-color 0.3s; /* Transición suave */
+	transition: border-color 0.3s; 
   }
   
   #todo-input:focus {
-	border-color: #45a049; /* Color verde más claro al enfocar */
+	border-color: #45a049; 
 	outline: none;
   }
   
   #add-button, .create-user-button {
 	padding: 1rem;
-	background-color: #4CAF50; /* Color verde */
+	background-color: #4CAF50; 
 	color: white;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	transition: background-color 0.3s; /* Transición suave */
+	transition: background-color 0.3s; 
   }
   
   #add-button:hover, .create-user-button:hover {
-	background-color: #45a049; /* Color verde más claro al pasar el mouse */
+	background-color: #45a049; 
   }
   
   #todo-list {
@@ -67,13 +67,13 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 0.5rem 0;
-	border-bottom: 1px solid #eee; /* Línea de separación entre tareas */
+	border-bottom: 1px solid #eee; 
   }
   
   .task-text {
-	flex-grow: 1; /* Para que ocupe todo el espacio disponible */
+	flex-grow: 1; 
 	padding-right: 1rem;
-	color: #555; /* Color del texto de la tarea */
+	color: #555; 
   }
   
   button {
@@ -84,25 +84,25 @@
   }
   
   .complete-button {
-	background-color: #f0ad4e; /* Color amarillo */
+	background-color: #f0ad4e; 
 	color: white;
   }
   
   .complete-button:hover {
-	background-color: #ec971f; /* Color naranja más oscuro al pasar el mouse */
+	background-color: #ec971f; 
   }
   
   .delete-button {
-	background-color: #d9534f; /* Color rojo */
+	background-color: #d9534f; 
 	color: white;
   }
   
   .delete-button:hover {
-	background-color: #c9302c; /* Color rojo más oscuro al pasar el mouse */
+	background-color: #c9302c; 
   }
   
   .error-notice {
-	margin: 5px; /* Espacio alrededor del mensaje de error */
+	margin: 5px; 
   }
   
   .oaerror {
@@ -110,7 +110,7 @@
 	padding: 20px;
 	border: 1px solid #eee;
 	border-left-width: 5px;
-	border-left-color: #d9534f; /* Color de borde rojo */
+	border-left-color: #d9534f; 
 	border-radius: 3px;
 	margin: 10px auto;
 	font-size: 16px;
@@ -118,16 +118,16 @@
   }
   
   .danger {
-	background-color: rgba(217, 83, 79, 0.1); /* Fondo claro para errores */
+	background-color: rgba(217, 83, 79, 0.1); 
   }
   
   .danger strong {
-	color: #d9534f; /* Color rojo para el texto destacado */
+	color: #d9534f; 
   }
   
   .is-done {
 	text-decoration: line-through;
-	color: #999; /* Color gris para las tareas completadas */
+	color: #999; 
   }
   
   .dots {
@@ -160,7 +160,7 @@
   
   h1, h2 {
 	text-align: center;
-	color: #333; /* Color de texto más oscuro */
+	color: #333; 
   }
   
   input {
