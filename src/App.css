@@ -1,144 +1,172 @@
-#root {
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Arial', sans-serif; /* Cambié a una fuente más moderna */
+  }
+  
+  body {
+	background-color: #f4f4f4; /* Color de fondo suave */
+  }
+  
+  #root {
 	background-color: #fff;
 	border-radius: 10px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	width: 100%;
 	max-width: 600px;
 	padding: 2rem;
-}
-
-.header {
+	margin: 2rem auto; /* Centrado vertical y horizontal */
+  }
+  
+  .header {
 	text-align: center;
+	margin-bottom: 1.5rem;
+	font-size: 1.5rem; /* Aumentado el tamaño de la fuente */
+	color: #333;
+  }
+  
+  .todo-input-section, .task-input-section {
 	margin-bottom: 1rem;
-	font-size: 1rem;
-}
-
-.todo-input-section {
-  margin-bottom: 1rem;
-}
-
-.todo-input-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-#todo-input {
-	width: 80%;
-	padding: 0.5rem;
-	border: 2px solid green;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  #todo-input {
+	padding: 0.75rem;
+	border: 2px solid #4CAF50; /* Color verde */
 	border-radius: 5px;
-}
-
-#add-button {
+	transition: border-color 0.3s; /* Transición suave */
+  }
+  
+  #todo-input:focus {
+	border-color: #45a049; /* Color verde más claro al enfocar */
+	outline: none;
+  }
+  
+  #add-button, .create-user-button {
 	padding: 1rem;
-	background-color: green;
+	background-color: #4CAF50; /* Color verde */
 	color: white;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-}
-
-#add-button:hover {
-	background-color: lightgreen;
-	color: #333;
-}
-
-#todo-list {
+	transition: background-color 0.3s; /* Transición suave */
+  }
+  
+  #add-button:hover, .create-user-button:hover {
+	background-color: #45a049; /* Color verde más claro al pasar el mouse */
+  }
+  
+  #todo-list {
 	list-style-type: none;
-}
-
-.todo-item {
+	margin-top: 1rem;
+  }
+  
+  .todo-item {
 	display: flex;
 	justify-content: space-between;
 	padding: 0.5rem 0;
-}
-
-.task-text {
-  align-content: center;
-}
-
-button {
+	border-bottom: 1px solid #eee; /* Línea de separación entre tareas */
+  }
+  
+  .task-text {
+	flex-grow: 1; /* Para que ocupe todo el espacio disponible */
+	padding-right: 1rem;
+	color: #555; /* Color del texto de la tarea */
+  }
+  
+  button {
 	border: none;
 	border-radius: 5px;
 	padding: 0.5rem;
 	cursor: pointer;
-}
-
-.complete-button {
-	background-color: goldenrod;
+  }
+  
+  .complete-button {
+	background-color: #f0ad4e; /* Color amarillo */
 	color: white;
-}
-
-.complete-button:hover {
-	background-color: lightgoldenrodyellow;
+  }
+  
+  .complete-button:hover {
+	background-color: #ec971f; /* Color naranja más oscuro al pasar el mouse */
+  }
+  
+  .delete-button {
+	background-color: #d9534f; /* Color rojo */
+	color: white;
+  }
+  
+  .delete-button:hover {
+	background-color: #c9302c; /* Color rojo más oscuro al pasar el mouse */
+  }
+  
+  .error-notice {
+	margin: 5px; /* Espacio alrededor del mensaje de error */
+  }
+  
+  .oaerror {
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #eee;
+	border-left-width: 5px;
+	border-left-color: #d9534f; /* Color de borde rojo */
+	border-radius: 3px;
+	margin: 10px auto;
+	font-size: 16px;
 	color: #333;
-}
-
-.delete-button {
-	background-color: red;
-	color: white;
-}
-
-.delete-button:hover {
-	background-color: black;
-}
-
-.delete-button:active {
-	background-color: linear-gradient(to bottom right, red 0%, black 100%);
-}
-
-.dots {
-  width: 21.1px;
-  height: 21.1px;
-  margin: 100px auto;
-  background: #000000;
-  color: #000000;
-  border-radius: 50%;
-  box-shadow: 35.2px 0,-35.2px 0;
-  animation: dots-u8fzfthg 1s infinite linear alternate;
-}
-
-@keyframes dots-u8fzfthg {
-  0% {
-     box-shadow: 35.2px 0,-35.2px 0;
-     background: ;
   }
-
-  33% {
-     box-shadow: 35.2px 0,-35.2px 0 rgba(0,0,0,0.13);
-     background: rgba(0,0,0,0.13);
+  
+  .danger {
+	background-color: rgba(217, 83, 79, 0.1); /* Fondo claro para errores */
   }
-
-  66% {
-     box-shadow: 35.2px 0 rgba(0,0,0,0.13),-35.2px 0;
-     background: rgba(0,0,0,0.13);
+  
+  .danger strong {
+	color: #d9534f; /* Color rojo para el texto destacado */
   }
-}
-
-.error-notice {
-  margin: 5px; /* Make sure to keep some distance from all sides */
-}
-
-.oaerror {
-  background-color: #ffffff;
-  padding: 20px;
-  border: 1px solid #eee;
-  border-left-width: 5px;
-  border-radius: 3px;
-  margin: 10px auto;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-}
-
-.danger {
-  border-left-color: #d9534f; /* Left side border color */
-  background-color: rgba(217, 83, 79, 0.1); /*Same color as the left border with reduced alpha to 0.1*/
-}
-
-.danger strong {
-  color: #d9534f;
-}
-
-.is-done {
+  
+  .is-done {
 	text-decoration: line-through;
-}
+	color: #999; /* Color gris para las tareas completadas */
+  }
+  
+  .dots {
+	width: 21.1px;
+	height: 21.1px;
+	margin: 100px auto;
+	background: #000;
+	border-radius: 50%;
+	box-shadow: 35.2px 0,-35.2px 0;
+	animation: dots-u8fzfthg 1s infinite linear alternate;
+  }
+  
+  @keyframes dots-u8fzfthg {
+	0% {
+	  box-shadow: 35.2px 0,-35.2px 0;
+	}
+	33% {
+	  box-shadow: 35.2px 0,-35.2px 0 rgba(0,0,0,0.13);
+	}
+	66% {
+	  box-shadow: 35.2px 0 rgba(0,0,0,0.13),-35.2px 0;
+	}
+  }
+  
+  .main {
+	padding: 20px;
+	max-width: 600px;
+	margin: auto;
+  }
+  
+  h1, h2 {
+	text-align: center;
+	color: #333; /* Color de texto más oscuro */
+  }
+  
+  input {
+	display: block;
+	margin: 10px 0;
+	padding: 10px;
+	width: calc(100% - 20px);
+  }
+  
